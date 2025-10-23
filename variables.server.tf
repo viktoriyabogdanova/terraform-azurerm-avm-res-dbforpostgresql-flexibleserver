@@ -11,6 +11,20 @@ variable "administrator_password" {
   sensitive   = true
 }
 
+variable "administrator_password_wo" {
+  type        = string
+  default     = null
+  ephemeral   = true
+  description = "(Optional) The write-only administrator password for the PostgreSQL Flexible Server. Use this if you want to provide a password that is not readable after creation."
+  sensitive   = true
+}
+
+variable "administrator_password_wo_version" {
+  type        = string
+  default     = null
+  description = "(Optional) The version of the write-only administrator password secret (if using Key Vault or similar)."
+}
+
 variable "authentication" {
   type = object({
     active_directory_auth_enabled = optional(bool)
